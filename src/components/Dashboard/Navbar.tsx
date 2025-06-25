@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
       <h1 className="text-xl font-semibold text-black dark:text-white flex-grow">
         Mini Dashboard
       </h1>
-      <p className="text-sm text-black dark:text-white ml-auto">Welcome User</p>
+
       <button
         onClick={toggleDarkMode}
         className="dark:bg-black bg-white px-3 py-1 rounded border border-gray-500 dark:border-gray-300 text-gray-700 dark:text-gray-300 focus:outline-none"

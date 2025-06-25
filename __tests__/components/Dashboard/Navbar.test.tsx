@@ -12,7 +12,6 @@ describe("Navbar", () => {
   it("renders the title and welcome text", () => {
     render(<Navbar />);
     expect(screen.getByText(/mini dashboard/i)).toBeInTheDocument();
-    expect(screen.getByText(/welcome user/i)).toBeInTheDocument();
   });
 
   it("shows Dark Mode button text initially when no dark class or localStorage", () => {
