@@ -16,7 +16,6 @@ const WeatherWidget: React.FC = () => {
   const [items, setItems] = useState<string[]>([]);
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  // Debounce search input and dispatch fetchWeather on mount and on search change
   useEffect(() => {
     if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
 
@@ -29,7 +28,6 @@ const WeatherWidget: React.FC = () => {
     };
   }, [search, dispatch]);
 
-  // When Redux data changes, update items for ordering
   useEffect(() => {
     if (Array.isArray(data) && data.length > 0) {
       setItems(data.map((city) => city.name));
@@ -38,7 +36,6 @@ const WeatherWidget: React.FC = () => {
     }
   }, [data]);
 
-  // Handle drag & drop reorder
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (over && active.id !== over.id) {

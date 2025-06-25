@@ -1,7 +1,6 @@
-// src/components/Widgets/SortableCoinCard.tsx
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import React from 'react';
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import React from "react";
 
 type Coin = {
   id: string;
@@ -60,8 +59,8 @@ const SortableCoinCard: React.FC<{ coin: Coin }> = ({ coin }) => {
       <p
         className={
           coin.price_change_percentage_24h >= 0
-            ? 'text-green-600'
-            : 'text-red-500'
+            ? "text-green-600"
+            : "text-red-500"
         }
       >
         24h: {coin.price_change_percentage_24h.toFixed(2)}%

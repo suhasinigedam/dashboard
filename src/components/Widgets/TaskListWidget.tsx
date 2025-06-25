@@ -42,7 +42,6 @@ const TaskListWidget: React.FC = () => {
     <div className="dark:bg-gray-900 bg-white rounded border border-gray-300 shadow p-4 max-w-md">
       <h2 className="font-bold text-lg mb-4">Task List</h2>
 
-      {/* Add new task */}
       <div className="flex mb-4 gap-2">
         <input
           type="text"
@@ -64,7 +63,6 @@ const TaskListWidget: React.FC = () => {
         </button>
       </div>
 
-      {/* Task list */}
       {tasks.length === 0 && <p className="text-gray-500">No tasks yet.</p>}
 
       <ul>
@@ -77,9 +75,7 @@ const TaskListWidget: React.FC = () => {
               <input
                 type="checkbox"
                 checked={task.completed}
-                onChange={() =>
-                  dispatch(toggleTaskCompleted({ id: task.id }))
-                }
+                onChange={() => dispatch(toggleTaskCompleted({ id: task.id }))}
                 className="dark:bg-gray-900 bg-gray-100 cursor-pointer h-6 w-6"
               />
               {editingId === task.id ? (

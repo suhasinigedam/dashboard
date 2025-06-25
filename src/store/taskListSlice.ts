@@ -1,4 +1,3 @@
-// src/store/taskListSlice.ts
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface Task {
@@ -11,7 +10,6 @@ interface TaskListState {
   tasks: Task[];
 }
 
-// Load from localStorage or default to empty
 const loadFromLocalStorage = (): Task[] => {
   try {
     const stored = localStorage.getItem('tasks');
@@ -24,7 +22,7 @@ const loadFromLocalStorage = (): Task[] => {
 const saveToLocalStorage = (tasks: Task[]) => {
   try {
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  } catch {}
+  } catch { }
 };
 
 const initialState: TaskListState = {

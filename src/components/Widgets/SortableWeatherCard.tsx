@@ -1,4 +1,3 @@
-// src/components/Widgets/SortableWeatherCard.tsx
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import React from "react";
@@ -49,9 +48,15 @@ const SortableWeatherCard: React.FC<{ city: WeatherCity }> = ({ city }) => {
         </svg>
       </div>
       <p className="dark:text-white text-black font-semibold">{city.name}</p>
-      <p className="dark:text-white text-black">{city.weather[0]?.description}</p>
-      <p className="dark:text-white text-black">Temperature: {city.main.temp} °C</p>
-      <p className="dark:text-white text-black">Humidity: {city.main.humidity} %</p>
+      <p className="dark:text-white text-black">
+        {city.weather[0]?.description}
+      </p>
+      <p className="dark:text-white text-black">
+        Temperature: {city.main.temp} °C
+      </p>
+      <p className="dark:text-white text-black">
+        Humidity: {city.main.humidity} %
+      </p>
     </div>
   );
 };

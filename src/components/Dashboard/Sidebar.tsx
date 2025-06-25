@@ -18,7 +18,6 @@ const Sidebar: React.FC = () => {
     (state: RootState) => state.widgets.activeWidget
   );
 
-  // Keep Redux in sync with current route
   useEffect(() => {
     if (widgetId && widgetId !== activeWidget) {
       dispatch(setActiveWidget(widgetId));

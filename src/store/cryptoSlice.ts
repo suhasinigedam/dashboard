@@ -24,7 +24,6 @@ const initialState: CryptoState = {
 };
 
 
-// Async thunk to fetch prices of Bitcoin and Ethereum in USD
 export const fetchCryptoPrices = createAsyncThunk(
   'crypto/fetchCryptoPrices',
   async () => {

@@ -21,7 +21,6 @@ const Navbar: React.FC = () => {
     }
   };
 
-  // Optional: load saved theme preference on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");

@@ -2,7 +2,6 @@ import { Suspense, lazy, type JSX } from "react";
 import { useParams } from "react-router-dom";
 import type { WidgetType } from "../../store/widgetsSlice";
 
-// Lazy load widget components
 const CryptoWidget = lazy(() => import("../Widgets/CryptoWidget"));
 const WeatherWidget = lazy(() => import("../Widgets/WeatherWidget"));
 const TaskListWidget = lazy(() => import("../Widgets/TaskListWidget"));
