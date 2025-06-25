@@ -6,8 +6,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/widgets/crypto" replace />} />
-      <Route path="/widgets/:widgetId" element={<Dashboard />} />
+      <Route path="/" element={<Navigate to="/Dashboard/crypto" replace />} />
+      <Route path="/Dashboard/:widgetId" element={<Dashboard />} />
     </Routes>
   );
 };
