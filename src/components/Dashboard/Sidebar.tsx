@@ -26,7 +26,7 @@ const Sidebar: React.FC = () => {
   }, [widgetId, dispatch, activeWidget]);
 
   const handleClick = (widget: WidgetType) => {
-    navigate(`/widgets/${widget}`);
+    navigate(`/dashboard/${widget}`);
     dispatch(setActiveWidget(widget));
   };
 
