@@ -28,6 +28,7 @@ const initialState: CryptoState = {
 export const fetchCryptoPrices = createAsyncThunk(
   'crypto/fetchCryptoPrices',
   async () => {
+    console.log("fetching crypto...");
     const response = await axios.get(
       'https://api.coingecko.com/api/v3/coins/markets',
       {
@@ -39,6 +40,7 @@ export const fetchCryptoPrices = createAsyncThunk(
         },
       }
     );
+    console.log(response.data)
     return response.data;
   }
 );

@@ -95,9 +95,8 @@ export const fetchWeather = createAsyncThunk(
   'weather/fetchWeather',
   async (city: string) => {
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
-
+    console.log("fetching weather...");
     if (!city.trim()) {
-      // No search input: fetch all fixed cities concurrently
       const responses = await Promise.all(
         cities.map((c) =>
           axios.get(
@@ -107,15 +106,16 @@ export const fetchWeather = createAsyncThunk(
           )
         )
       );
+      console.log(responses);
       return responses.map((res) => res.data);
     } else {
-      // Search input present: fetch only that city
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
           city
         )}&appid=${apiKey}&units=metric`
       );
-      return [response.data]; // Return as array for consistency
+      console.log(response);
+      return [response.data];
     }
   }
 );
