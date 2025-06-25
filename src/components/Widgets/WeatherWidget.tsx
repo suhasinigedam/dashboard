@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hook";
-import { fetchWeather } from "../../store/weatherSlice";
+import { City, fetchWeather } from "../../store/weatherSlice";
 import { DndContext, closestCenter, DragEndEvent } from "@dnd-kit/core";
 import {
   SortableContext,
@@ -71,7 +71,7 @@ const WeatherWidget: React.FC = () => {
           <SortableContext items={items} strategy={rectSortingStrategy}>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {items.map((name) => {
-                const city = data.find((c) => c.name === name);
+                const city: City = data.find((c: City) => c.name === name);
                 if (!city) return null;
                 return <SortableWeatherCard key={city.id} city={city} />;
               })}

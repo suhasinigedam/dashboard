@@ -17,12 +17,10 @@ const CryptoWidget: React.FC = () => {
   const [searchResults, setSearchResults] = useState<string[] | null>(null);
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  // Initial fetch of crypto prices
   useEffect(() => {
     dispatch(fetchCryptoPrices());
   }, [dispatch]);
 
-  // When original data arrives, set initial items (only if no search)
   useEffect(() => {
     if (data.length > 0 && !search) {
       setItems(data.map((coin) => coin.id));
@@ -30,14 +28,12 @@ const CryptoWidget: React.FC = () => {
     }
   }, [data, search]);
 
-  // Debounced search API call
   useEffect(() => {
     if (debounceTimeout.current) {
       clearTimeout(debounceTimeout.current);
     }
 
     if (search.trim() === "") {
-      // Clear search results to show all coins again
       setSearchResults(null);
       return;
     }
@@ -51,7 +47,6 @@ const CryptoWidget: React.FC = () => {
         .then((res) => res.json())
         .then((result) => {
           if (result.coins && Array.isArray(result.coins)) {
-            // Extract ids of coins matching the query
             const ids = result.coins.map((coin: any) => coin.id);
             setSearchResults(ids);
           } else {
@@ -68,7 +63,6 @@ const CryptoWidget: React.FC = () => {
     };
   }, [search]);
 
-  // Use searchResults if available, otherwise use items from store
   const displayedItems = searchResults ?? items;
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -97,7 +91,7 @@ const CryptoWidget: React.FC = () => {
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={displayedItems} strategy={rectSortingStrategy}>
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {displayedItems.length === 0 && !loading && (
               <p>No results found.</p>
             )}

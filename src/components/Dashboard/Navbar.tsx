@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const Navbar: React.FC = () => {
   const [isDark, setIsDark] = useState(() => {
-    // initialize from system preference or existing class on html
     if (typeof window !== "undefined") {
       return document.documentElement.classList.contains("dark");
     }

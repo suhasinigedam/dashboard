@@ -9,7 +9,7 @@ interface Coin {
   image: string;
   current_price: number;
   price_change_percentage_24h: number;
-} 
+}
 
 interface CryptoState {
   data: Coin[];
@@ -55,7 +55,7 @@ const cryptoSlice = createSlice({
       })
       .addCase(fetchCryptoPrices.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.data = action.payload as Coin[];;
       })
       .addCase(fetchCryptoPrices.rejected, (state, action) => {
         state.loading = false;
